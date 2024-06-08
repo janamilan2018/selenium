@@ -3,9 +3,9 @@
 <suite name="ChatbotTestSuite">
     <test verbose="2" preserve-order="true" name="/home/cbnits-208/IdeaProjects/FirsTestCase">
         <classes>
-            <class name="com.login.NormalTest">
+            <class name="com.prompts.ToxicityTest">
                 <methods>
-                    <include name="testChatbotMessages"/>
+                    <include name="promtsMassages"/>
                 </methods>
             </class>
         </classes>
