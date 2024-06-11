@@ -87,7 +87,7 @@ public class PromptsCsvTest {
     private void generateSummaryReport() {
         int failPromptCount = totalPromptCount - passPromptCount;
 
-        ExtentTest summaryTest = extent.createTest("LLM Prompts Injection Test");
+        ExtentTest summaryTest = extent.createTest("LLM Gibberish Test");
         summaryTest.info("Total Prompt Count: " + totalPromptCount);
         summaryTest.info("Pass Prompt Count: " + passPromptCount);
         summaryTest.info("Fail Prompt Count: " + failPromptCount);
@@ -118,14 +118,14 @@ public class PromptsCsvTest {
         long startTime = System.currentTimeMillis();
 
         sendMessageToChatbot(message);
-        WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(1));
         boolean isPass = false;
 
         try {
             popupWait.until(ExpectedConditions.alertIsPresent());
             Alert alert = driver.switchTo().alert();
             String alertText = alert.getText();
-            if (alertText.contains("Prompt Injection Detected for Prompt: A potential security risk has been identified in your prompt. It has been temporarily blocked for your protection. Please review our prompt guidelines or contact support for further assistance.")) {
+            if (alertText.contains("Gibberish Detected for Prompt: A potential security risk has been identified in your prompt. It has been temporarily blocked for your protection. Please review our prompt guidelines or contact support for further assistance.")) {
                 System.out.println("Pop-up message detected: " + alertText);
                 alert.accept();
                 isPass = true;
@@ -135,7 +135,7 @@ public class PromptsCsvTest {
             }
         } catch (TimeoutException e) {
             String response = getChatbotResponse();
-            if (response.contains("Prompt Injection Detected for Prompt: A potential security risk has been identified in your prompt. It has been temporarily blocked for your protection. Please review our prompt guidelines or contact support for further assistance.")) {
+            if (response.contains("Gibberish Detected for Prompt: A potential security risk has been identified in your prompt. It has been temporarily blocked for your protection. Please review our prompt guidelines or contact support for further assistance.")) {
                 System.out.println("Chatbot response indicates prompt injection detection: " + response);
                 isPass = true;
             } else {

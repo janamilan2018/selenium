@@ -89,7 +89,7 @@ public class BanTopicTest {
         long startTime = System.currentTimeMillis();
 
         sendMessageToChatbot(message);
-        WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait popupWait = new WebDriverWait(driver, Duration.ofSeconds(1));
         boolean isPass = false;
 
         try {

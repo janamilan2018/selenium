@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.AssertJUnit.assertTrue;
 
-public class PromptCsvTest {
+public class GibberishCsvTest {
 
     private WebDriver driver;
     private WebDriverWait wait;
